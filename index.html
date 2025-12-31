@@ -1,0 +1,52 @@
+<html>
+  <head>
+    <title>HTML Projects</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <script defer src="./search.js"></script>
+
+    <!-- tricky interview question -->
+    <!-- What placing <script> at bottom of <body> does -->
+    <!-- Bottom of body
+HTML parsing → DOM built → JS downloads → JS executes
+
+Head + defer
+HTML parsing + JS downloading (parallel)
+→ DOM built
+→ JS executes -->
+
+    <!-- Pros
+
+DOM is already loaded
+
+No null DOM issues
+
+Simple and works without defer
+
+❌ Cons
+
+HTML and JS are mixed together
+
+Harder to manage multiple scripts
+
+Execution order becomes unclear in large apps
+
+Doesn’t scale well (bundlers, code splitting)
+
+Still blocks rendering at the end -->
+  </head>
+  <body>
+    <header>
+      <h3>Auto suggestions</h3>
+    </header>
+    <main>
+      <input
+        id="inputSuggestions"
+        type="search"
+        placeholder="search your query"
+      />
+      <div id="suggestionsList"></div>
+    </main>
+  </body>
+</html>
